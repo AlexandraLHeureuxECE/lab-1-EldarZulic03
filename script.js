@@ -2,8 +2,7 @@ const statusText = document.getElementById("status");
 const cells = Array.from(document.querySelectorAll(".cell"));
 const newGameButton = document.getElementById("newGame");
 const threeDButton = document.getElementById("threeD");
-const themeToggle = document.getElementById("themeToggle");
-const hackerToggle = document.getElementById("hackerToggle");
+const themeButton = document.getElementById("themeButton");
 
 const winningCombos = [
   [0, 1, 2],
@@ -18,9 +17,16 @@ const winningCombos = [
 
 let currentPlayer = "X";
 let isGameActive = true;
+let currentThemeIndex = 0;
 
 // Initialize game board state
 let boardState = Array(9).fill("");
+
+const themes = [
+  { name: "Light", className: "" },
+  { name: "Cyberpunk", className: "theme-cyberpunk" },
+  { name: "Hacker", className: "theme-hacker" },
+];
 
 function updateStatus(message) {
   statusText.textContent = message;
@@ -91,26 +97,21 @@ function resetGame() {
   updateStatus("Current Turn: X");
 }
 
-// Toggle between light and cyberpunk themes
-function toggleTheme(event) {
-  const isChecked = event.target.checked;
-  document.body.classList.toggle("theme-cyberpunk", isChecked);
+// Cycle through available themes
+function cycleTheme() {
+  document.body.classList.remove(
+    "theme-cyberpunk",
+    "theme-hacker"
+  );
 
-  if (isChecked) {
-    document.body.classList.remove("theme-hacker");
-    hackerToggle.checked = false;
+  currentThemeIndex = (currentThemeIndex + 1) % themes.length;
+  const selectedTheme = themes[currentThemeIndex];
+
+  if (selectedTheme.className) {
+    document.body.classList.add(selectedTheme.className);
   }
-}
 
-// Toggle between light and hacker themes
-function toggleHackerTheme(event) {
-  const isChecked = event.target.checked;
-  document.body.classList.toggle("theme-hacker", isChecked);
-
-  if (isChecked) {
-    document.body.classList.remove("theme-cyberpunk");
-    themeToggle.checked = false;
-  }
+  themeButton.textContent = `Theme: ${selectedTheme.name}`;
 }
 
 // Toggle 3D visual effect
@@ -122,5 +123,4 @@ function toggle3D() {
 cells.forEach((cell) => cell.addEventListener("click", handleCellClick));
 newGameButton.addEventListener("click", resetGame);
 threeDButton.addEventListener("click", toggle3D);
-themeToggle.addEventListener("change", toggleTheme);
-hackerToggle.addEventListener("change", toggleHackerTheme);
+themeButton.addEventListener("click", cycleTheme);

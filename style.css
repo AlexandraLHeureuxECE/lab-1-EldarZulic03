@@ -194,67 +194,6 @@ body.theme-hacker .button--active {
   transform: translateY(-1px);
 }
 
-.theme-toggle {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-size: 0.9rem;
-  color: var(--muted);
-}
-
-.switch {
-  position: relative;
-  display: inline-block;
-  width: 50px;
-  height: 28px;
-}
-
-.switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-.slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #cbd5f5;
-  border-radius: 999px;
-  transition: 0.3s;
-}
-
-body.theme-cyberpunk .slider {
-  background-color: #1f2937;
-}
-
-body.theme-hacker .slider {
-  background-color: #0d1a12;
-}
-
-.slider::before {
-  position: absolute;
-  content: "";
-  height: 22px;
-  width: 22px;
-  left: 3px;
-  bottom: 3px;
-  background-color: white;
-  border-radius: 50%;
-  transition: 0.3s;
-}
-
-input:checked + .slider {
-  background-color: var(--accent);
-}
-
-input:checked + .slider::before {
-  transform: translateX(22px);
-}
-
 /* 3D visual mode */
 body.theme-3d .app {
   transform: translateY(-2px);
