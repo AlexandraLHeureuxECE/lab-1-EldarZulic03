@@ -97,7 +97,8 @@ function toggleTheme(event) {
 
 // Toggle 3D visual effect
 function toggle3D() {
-  document.body.classList.toggle("theme-3d");
+  const isActive = document.body.classList.toggle("theme-3d");
+  threeDButton.classList.toggle("button--active", isActive);
 }
 
 cells.forEach((cell) => cell.addEventListener("click", handleCellClick));

@@ -153,6 +153,16 @@ body.theme-cyberpunk .button {
   box-shadow: none;
 }
 
+.button--active {
+  background: var(--accent);
+  color: #ffffff;
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.25);
+}
+
+body.theme-cyberpunk .button--active {
+  box-shadow: 0 8px 20px rgba(34, 211, 238, 0.35);
+}
+
 .button:hover {
   transform: translateY(-1px);
 }
