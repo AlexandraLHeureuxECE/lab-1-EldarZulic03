@@ -1,6 +1,7 @@
 const statusText = document.getElementById("status");
 const cells = Array.from(document.querySelectorAll(".cell"));
 const newGameButton = document.getElementById("newGame");
+const threeDButton = document.getElementById("threeD");
 const themeToggle = document.getElementById("themeToggle");
 
 const winningCombos = [
@@ -94,6 +95,12 @@ function toggleTheme(event) {
   document.body.classList.toggle("theme-cyberpunk", event.target.checked);
 }
 
+// Toggle 3D visual effect
+function toggle3D() {
+  document.body.classList.toggle("theme-3d");
+}
+
 cells.forEach((cell) => cell.addEventListener("click", handleCellClick));
 newGameButton.addEventListener("click", resetGame);
+threeDButton.addEventListener("click", toggle3D);
 themeToggle.addEventListener("change", toggleTheme);
