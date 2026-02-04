@@ -26,6 +26,20 @@ body.theme-cyberpunk {
   --glow: 0 0 12px currentColor, 0 0 24px currentColor;
 }
 
+/* Hacker theme variables */
+body.theme-hacker {
+  --bg: #040607;
+  --panel: #070c08;
+  --text: #d1f7c4;
+  --muted: #6ee7b7;
+  --border: #0f1f16;
+  --accent: #39ff14;
+  --x-color: #39ff14;
+  --o-color: #39ff14;
+  --shadow: 0 12px 40px rgba(57, 255, 20, 0.25);
+  --glow: 0 0 12px currentColor, 0 0 24px currentColor;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -45,6 +59,11 @@ body {
 
 body.theme-cyberpunk {
   background: radial-gradient(circle at top, rgba(34, 211, 238, 0.15), transparent 55%),
+    var(--bg);
+}
+
+body.theme-hacker {
+  background: radial-gradient(circle at top, rgba(57, 255, 20, 0.2), transparent 55%),
     var(--bg);
 }
 
@@ -146,6 +165,10 @@ body.theme-cyberpunk .button {
   box-shadow: 0 8px 20px rgba(34, 211, 238, 0.35);
 }
 
+body.theme-hacker .button {
+  box-shadow: 0 8px 20px rgba(57, 255, 20, 0.35);
+}
+
 .button--ghost {
   background: transparent;
   color: var(--accent);
@@ -161,6 +184,10 @@ body.theme-cyberpunk .button {
 
 body.theme-cyberpunk .button--active {
   box-shadow: 0 8px 20px rgba(34, 211, 238, 0.35);
+}
+
+body.theme-hacker .button--active {
+  box-shadow: 0 8px 20px rgba(57, 255, 20, 0.35);
 }
 
 .button:hover {
@@ -202,6 +229,10 @@ body.theme-cyberpunk .button--active {
 
 body.theme-cyberpunk .slider {
   background-color: #1f2937;
+}
+
+body.theme-hacker .slider {
+  background-color: #0d1a12;
 }
 
 .slider::before {

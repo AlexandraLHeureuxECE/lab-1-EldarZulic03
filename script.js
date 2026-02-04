@@ -3,6 +3,7 @@ const cells = Array.from(document.querySelectorAll(".cell"));
 const newGameButton = document.getElementById("newGame");
 const threeDButton = document.getElementById("threeD");
 const themeToggle = document.getElementById("themeToggle");
+const hackerToggle = document.getElementById("hackerToggle");
 
 const winningCombos = [
   [0, 1, 2],
@@ -92,7 +93,24 @@ function resetGame() {
 
 // Toggle between light and cyberpunk themes
 function toggleTheme(event) {
-  document.body.classList.toggle("theme-cyberpunk", event.target.checked);
+  const isChecked = event.target.checked;
+  document.body.classList.toggle("theme-cyberpunk", isChecked);
+
+  if (isChecked) {
+    document.body.classList.remove("theme-hacker");
+    hackerToggle.checked = false;
+  }
+}
+
+// Toggle between light and hacker themes
+function toggleHackerTheme(event) {
+  const isChecked = event.target.checked;
+  document.body.classList.toggle("theme-hacker", isChecked);
+
+  if (isChecked) {
+    document.body.classList.remove("theme-cyberpunk");
+    themeToggle.checked = false;
+  }
 }
 
 // Toggle 3D visual effect
@@ -105,3 +123,4 @@ cells.forEach((cell) => cell.addEventListener("click", handleCellClick));
 newGameButton.addEventListener("click", resetGame);
 threeDButton.addEventListener("click", toggle3D);
 themeToggle.addEventListener("change", toggleTheme);
+hackerToggle.addEventListener("change", toggleHackerTheme);
